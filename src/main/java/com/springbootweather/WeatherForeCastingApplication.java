@@ -1,0 +1,12 @@
+package com.springbootweather;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class WeatherForeCastingApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(WeatherForeCastingApplication.class, args);
+	}
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Spring Boot Thymeleaf Hello World Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" type="tex/css" href="../../css/main.css" />
+
+    <!-- /.container -->
+
+    <script type="text/javascript"
+            src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Spring Boot</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>Weather Report</h1>
+     </div>
+    <div>
+        <button id="getData">Todays Weather</button>
+        <button id="sendData">Save Reports</button>
+        <button id="getprevoisData">Prevoius Reports</button>
+    </div>
+    <h3>
+       Todays Weather Report of London
+    </h3>
+
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Temperature</th>
+            <th>Minimum Temperature</th>
+            <th>Maximum Temperature</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+    $(document).ready(function(){
+        $("#getData").click(function(){
+             $.ajax({url:"http://api.openweathermap.org/data/2.5/weather?id=2172797&amp;APPID=dbc7b01b8359f59ac208e566926b6d91",
+             success:function(data, status){
+             try{
+                  alert(data);
+                  alert("coordinates" + data.main.temp_min + data.main.temp_max);
+             }catch(e){
+                alert(e.message);
+             }
+             }});
+        });
+    });
+
+    $(document).ready(function(){
+        $("#sendData").click(function(){
+            $.post("http://localhost:8080/weatherappclient/save",
+               {
+                 "temp":289.5,
+                 "city":"Pune",
+                 "temp_min":287.04,
+                 "temp_max":292.04
+               },
+               function(status){
+                  alert("Status: " + data);
+               });
+        });
+    });
+
+    $("#getprevoisData").click(function(){
+    $.get("http://localhost:8080/weatherappclient/get", function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+});
+</script>
+</body>
+</html>
