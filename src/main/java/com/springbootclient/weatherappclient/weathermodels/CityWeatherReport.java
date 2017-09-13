@@ -1,4 +1,4 @@
-package weathermodels;
+package com.springbootclient.weatherappclient.weathermodels;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,6 +18,16 @@ public class CityWeatherReport {
     private float minTemp;
     private float temp;
     private Date weatherReportDate;
+
+    public CityWeatherReport(){}
+
+    public CityWeatherReport(int id, String cityName, float maxTemp, float minTemp, float temp, Date weatherReportDate) {
+        this.id = id;
+        this.cityName = cityName;
+        this.maxTemp = maxTemp;
+        this.minTemp = minTemp;
+        this.weatherReportDate = weatherReportDate;
+    }
 
     public float getMinTemp() {
         return minTemp;
@@ -66,4 +76,5 @@ public class CityWeatherReport {
     public void setId(int id) {
         this.id = id;
     }
+
 }
