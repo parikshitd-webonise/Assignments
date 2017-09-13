@@ -3,12 +3,11 @@ package com.springbootclient.weatherappclient.weathermodels;
 import javax.persistence.*;
 import java.util.Date;
 
-/*
-    The class is persistent clas for sving the details into database
- */
+// The class is persistent clas for sving the details into database
 @Entity
 @Table(name = "cityweatherreport")
-public class CityWeatherReport {
+public class CityWeatherReport
+{
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -21,11 +20,13 @@ public class CityWeatherReport {
 
     public CityWeatherReport(){}
 
-    public CityWeatherReport(int id, String cityName, float maxTemp, float minTemp, float temp, Date weatherReportDate) {
+    public CityWeatherReport(int id, String cityName, float maxTemp, float minTemp, float temp, Date weatherReportDate)
+    {
         this.id = id;
         this.cityName = cityName;
         this.maxTemp = maxTemp;
         this.minTemp = minTemp;
+        this.temp = temp;
         this.weatherReportDate = weatherReportDate;
     }
 
