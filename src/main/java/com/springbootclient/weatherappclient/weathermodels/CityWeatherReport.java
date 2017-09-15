@@ -1,6 +1,8 @@
 package com.springbootclient.weatherappclient.weathermodels;
 
 import javax.persistence.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 // The class is persistent clas for sving the details into database
@@ -66,9 +68,7 @@ public class CityWeatherReport
         return weatherReportDate;
     }
 
-    public void setWeatherReportDate(Date weatherReportDate) {
-        this.weatherReportDate = weatherReportDate;
-    }
+    public void setWeatherReportDate(Date weatherReportDate) { this.weatherReportDate = weatherReportDate; }
 
     public int getId() {
         return id;
